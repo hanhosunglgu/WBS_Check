@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:18-alpine
+    container_name: wbs-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=postgres
+      - DB_PORT=5432
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/app
+    command: node server.js
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: wbs-postgres
+    environment:
+      - POSTGRES_USER=wbs
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=wbs_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
