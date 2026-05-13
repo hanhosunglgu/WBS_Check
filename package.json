@@ -1,0 +1,8 @@
+{
+  "name": "wbs-check",
+  "version": "1.0.0",
+  "description": "WBS Check Frontend",
+  "scripts": { "dev": "vite", "build": "vite build" },
+  "dependencies": { "react": "^18.0.0", "react-dom": "^18.0.0" },
+  "devDependencies": { "vite": "^4.0.0" }
+}
